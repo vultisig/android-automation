@@ -15,7 +15,7 @@ public class ScanQRScreen extends BaseScreen {
     private WebElement scanQRCodeTitle;
 
     // 🔹 Back button
-    @AndroidFindBy(xpath = "//z1.q0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]")
+    @AndroidFindBy(xpath = "//android.view.ViewGroup/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[3]/android.view.View/android.view.View[1]")
     private WebElement backButton;
 
     // 🔹 Constructor

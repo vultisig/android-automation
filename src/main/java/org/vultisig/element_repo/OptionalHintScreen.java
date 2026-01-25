@@ -18,7 +18,7 @@ public class OptionalHintScreen extends BaseScreen {
     private WebElement forgetPasswordHintText;
 
     // 🔹 Step 2: Skip button
-    @AndroidFindBy(xpath = "//z1.q0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
+    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
     private WebElement skipButton;
 
     // 🔹 Step 3: Hint input field
@@ -26,10 +26,10 @@ public class OptionalHintScreen extends BaseScreen {
     private WebElement skipField;
 
     // 🔹 Step 4: Next button
-    @AndroidFindBy(xpath = "//z1.q0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[4]")
+    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[4]")
     private WebElement nextButton;
 
-    @AndroidFindBy(xpath = "//z1.q0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]")
+    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]")
     private static WebElement backButton;
 
     // 🔹 Constructor
@@ -78,7 +78,7 @@ public class OptionalHintScreen extends BaseScreen {
     public void clickNextButton() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement nextBtn = wait.until(ExpectedConditions.elementToBeClickable(
-                By.xpath("//z1.q0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[4]")
+                By.xpath("//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[4]")
         ));
         nextBtn.click();
         System.out.println("✅ Next button clicked on Optional Hint Screen");

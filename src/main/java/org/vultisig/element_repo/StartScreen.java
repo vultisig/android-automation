@@ -27,11 +27,11 @@ public class StartScreen extends BaseScreen {
     private WebElement orTxt;
 
     // 🔹 Scan QR button
-    @AndroidFindBy(xpath = "//z1.q0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]")
+    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]")
     private WebElement scanQRButton;
 
     // 🔹 Import Vault button
-    @AndroidFindBy(xpath = "//z1.q0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
+    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
     private WebElement importVaultButton;
 
     private static final Logger logger = Logger.getLogger(ScanQRScreen.class.getName());

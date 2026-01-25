@@ -11,7 +11,7 @@ import java.time.Duration;
 public class VaultsPage extends BaseScreen {
 
     // 🔹 Wallet element to wait for
-    @AndroidFindBy(xpath = "//z1.q0/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[3]/android.view.View/android.view.View/android.view.View[1]")
+    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[3]/android.view.View/android.view.View/android.view.View[1]")
     private WebElement walletElement;
 
 

@@ -24,23 +24,23 @@ public class SetupScreen extends BaseScreen {
     private static final Logger logger = Logger.getLogger(SetupScreen.class.getName());
 
     // 🔹 Back button
-    @AndroidFindBy(xpath = "//z1.q0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.view.View[1]")
+    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.view.View[1]")
     private WebElement backButton;
 
     // 🔹 Info icon button
-    @AndroidFindBy(xpath = "//z1.q0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.view.View[3]")
+    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.view.View[3]")
     private WebElement infoButton;
 
     // 🔹  Fast Vault selection box
-    @AndroidFindBy(xpath = "//z1.q0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[1]")
+    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[1]")
     private WebElement fastVaultBox;
 
     // 🔹  Continue button
-    @AndroidFindBy(xpath = "//z1.q0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]")
+    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]")
     private WebElement continueButton;
 
     // Secure vault selection box
-    @AndroidFindBy(xpath = "//z1.q0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[2]")
+    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[2]")
     private WebElement secureVaultBox;
 
     // 🔹 Constructor
@@ -170,7 +170,7 @@ public class SetupScreen extends BaseScreen {
      * Clicks the Secure Vault selection box using the exact XPath provided by you.
      */
     public void clickSecureVaultByXpath() {
-        String secureXpath = "//z1.q0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[2]";
+        String secureXpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[2]";
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         try {
             WebElement secure = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(secureXpath)));

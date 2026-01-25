@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class VaultNameScreen extends BaseScreen {
 
-    @AndroidFindBy(xpath = "//z1.q0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]")
+    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]")
     private static WebElement backButton;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Name your vault\"]")
@@ -21,13 +21,13 @@ public class VaultNameScreen extends BaseScreen {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"You can always rename your vault later in the settings\"]")
     private static WebElement renameVaultInfoText;
 
-    @AndroidFindBy(xpath = "//z1.q0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View")
+    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View")
     private static WebElement clearTextButton;
 
     @AndroidFindBy(xpath = "//android.widget.EditText")
     private static WebElement vaultTextField;
 
-    @AndroidFindBy(xpath = "//z1.q0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
+    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
     private static WebElement continueButton;
 
     // 🔹 Store the last vault name entered
