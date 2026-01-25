@@ -107,7 +107,7 @@ public class E2E_CreateFastVault_SkipOnboarding_HintScreen_BkupWithoutPwd extend
         // ---------------------- OTP Screen ----------------------
 
 
-        logger.info("🔹 Fetching OTP...");
+        logger.info("🔹 Fetching OTP. ...");
         String userEmail = "brajaautomation@gmail.com";
         String appPassword = "ysjcowogctdostcq";
         String senderEmail = "vultisig";
