@@ -6,6 +6,7 @@ import org.vultisig.element_repo.*;
 import tests.BaseTest;
 import utils.DriverUtils;
 import utils.GmailOtpFetcher;
+import utils.OtpRetryHandler;
 
 import java.util.logging.Logger;
 
@@ -109,14 +110,21 @@ public class E2E_CreateFastVault_SkipOnboarding_HintScreen_BkupWithoutPwd extend
 
         logger.info("🔹 Fetching OTP. ...");
         String userEmail = "brajaautomation@gmail.com";
-        String appPassword = "ysjcowogctdostcq";
+        String appPassword = "msgh kcym rblv hmoc";
         String senderEmail = "vultisig";
-        String otp = GmailOtpFetcher.fetchOtp(userEmail, appPassword, senderEmail, 220); // increased timeout
-        logger.info("✅ OTP fetched: " + otp);
+        logger.info("🔹 Entering OTP with retry...");
 
-        OTPScreen otpScreen = new OTPScreen(DriverUtils.getDriver());
-        otpScreen.enterOtp(otp);
-        logger.info("✅ OTP entered");
+        OtpRetryHandler.enterOtpWithRetry(
+                DriverUtils.getDriver(),
+                "brajaautomation@gmail.com",
+                "msghkcymrblvhmoc",
+                "vultisig",
+                3
+        );
+
+        logger.info("✅ OTP flow completed successfully");
+
+
 
         // ---------------------- VaultBackupScreen ----------------------
         logger.info("🔹 Validating Backup Vault screen...");

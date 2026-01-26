@@ -38,12 +38,19 @@ public class GmailOtpFetcher {
         System.out.println("📩 Checking for new OTP emails...");
 
         while (System.currentTimeMillis() < endTime) {
-            Message[] messages = inbox.search(new FlagTerm(new Flags(Flags.Flag.SEEN), false));
+            Message[] messages = inbox.search(
+                    new FlagTerm(new Flags(Flags.Flag.SEEN), false)
+            );
 
-            for (Message message : messages) {
+// 🔥 Process newest emails first
+            for (int i = messages.length - 1; i >= 0; i--) {
+
+                Message message = messages[i];
+
                 String from = message.getFrom()[0].toString().toLowerCase();
 
                 if (from.contains(senderKeyword.toLowerCase())) {
+
                     Object content = message.getContent();
                     String bodyText;
 
@@ -55,18 +62,18 @@ public class GmailOtpFetcher {
                         bodyText = "";
                     }
 
-                    // ✅ Extract 4-digit OTP using regex
                     Pattern p = Pattern.compile("\\b(\\d{4})\\b");
                     Matcher m = p.matcher(bodyText);
 
                     if (m.find()) {
                         otp = m.group(1);
-                        message.setFlag(Flags.Flag.SEEN, true); // mark as read
-                        System.out.println("✅ OTP Found: " + otp);
+                        message.setFlag(Flags.Flag.SEEN, true);
+                        System.out.println("✅ OTP Found (latest): " + otp);
                         break;
                     }
                 }
             }
+
 
             if (otp != null) break;
 
