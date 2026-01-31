@@ -8,17 +8,25 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-public class VaultsPage extends BaseScreen {
+public class HomePage extends BaseScreen {
 
     // 🔹 Wallet element to wait for
     @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[3]/android.view.View/android.view.View/android.view.View[1]")
     private WebElement walletElement;
 
+    // 🔹 Settings button on Home Page
+    @AndroidFindBy(
+            xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[3]/android.view.View/android.view.View/android.view.View[2]"
+    )
+    private WebElement settingsButton;
+
 
     // 🔹 Constructor
-    public VaultsPage(AppiumDriver driver) {
+    public HomePage(AppiumDriver driver) {
         super(driver);
     }
+
+    // -----------------VaultsPage-------------
 
     // 🔹 Wait for wallet element to appear
     public boolean waitForWalletElement(AppiumDriver driver) {
@@ -44,5 +52,12 @@ public class VaultsPage extends BaseScreen {
         boolean displayed = vaultElement.isDisplayed();
         System.out.println("🔍 Vault name '" + vaultName + "' is displayed: " + displayed);
         return displayed;
+    }
+
+    //----------------SettingsPage-----------
+    // 🔹 Click Settings button
+    public void clickSettingsButton() {
+        settingsButton.click();
+        System.out.println("✅ Settings button clicked");
     }
 }

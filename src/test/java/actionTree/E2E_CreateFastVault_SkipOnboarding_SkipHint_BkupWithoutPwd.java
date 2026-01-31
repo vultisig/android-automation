@@ -5,7 +5,6 @@ import org.testng.annotations.Test;
 import org.vultisig.element_repo.*;
 import tests.BaseTest;
 import utils.DriverUtils;
-import utils.GmailOtpFetcher;
 import utils.OtpRetryHandler;
 
 import java.util.logging.Logger;
@@ -35,7 +34,7 @@ public class E2E_CreateFastVault_SkipOnboarding_SkipHint_BkupWithoutPwd extends 
         BackupChoiceScreen backupChoiceScreen = new BackupChoiceScreen(DriverUtils.getDriver());
         DownloadsPage downloadsPage = new DownloadsPage(DriverUtils.getDriver());
         BackupGuideScreen backupGuideScreen = new BackupGuideScreen(DriverUtils.getDriver());
-        VaultsPage vaultsPage = new VaultsPage(DriverUtils.getDriver());
+        HomePage vaultsPage = new HomePage(DriverUtils.getDriver());
 
         // ---------------------- StartScreen ----------------------
         logger.info("🔹 Validating Welcome Screen...");

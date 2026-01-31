@@ -1,0 +1,9 @@
+{
+    "platform": "Android",
+    "deviceName": "emulator-5554",
+    "automationName": "UiAutomator2",
+    "app_url": "apps/android/and_lat.apk",
+    "timeout": 5000
+}
+
+
