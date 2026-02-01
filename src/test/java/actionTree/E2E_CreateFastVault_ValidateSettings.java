@@ -10,10 +10,10 @@ import java.util.logging.Logger;
 import org.vultisig.element_repo.HomePage;
 
 
-public class Validate_Settings_Complete extends BaseTest {
+public class E2E_CreateFastVault_ValidateSettings extends BaseTest {
 
     private static final Logger logger = Logger.getLogger(
-            Validate_Settings_Complete.class.getName()
+            E2E_CreateFastVault_ValidateSettings.class.getName()
     );
 
     @Test(description = "Complete E2E flow: Create Fast Vault → Skip Onboarding & Hint → Backup Without Password → Validate Downloads → Validate Vaults")
