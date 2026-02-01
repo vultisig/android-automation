@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Vultisig-Android-Automation" parallel="classes" thread-count="3">
+    <test name="Android">
+        <classes>
+            <class name="actionTree.E2E_CreateFastVault_SkipOnboarding_HintScreen_BkupWithoutPwd" />
+            <class name="actionTree.E2E_CreateFastVault_SkipOnboarding_SkipHint_BkupWithoutPwd" />
+            <class name="actionTree.Validate_ChooseSetup_Screen" />
+            <class name="actionTree.Validate_EmailScreen" />
+            <class name="actionTree.Validate_ImportVault" />
+            <class name="actionTree.Validate_NameYourVaultScreen" />
+            <class name="actionTree.Validate_OptionalHintScreen_FillHint" />
+            <class name="actionTree.Validate_OptionalHintScreen_SkipHint" />
+            <class name="actionTree.Validate_PasswordScreen" />
+            <class name="actionTree.Validate_ScanQr" />
+            <class name="actionTree.ValidateStartScreen" />
+        </classes>
+    </test>
+</suite>
