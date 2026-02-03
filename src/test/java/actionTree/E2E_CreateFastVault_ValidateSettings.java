@@ -341,6 +341,15 @@ public class E2E_CreateFastVault_ValidateSettings extends BaseTest {
         Assert.assertTrue(settingsScreen.isSignatureDisplayed(), "❌ Signature not displayed");
         settingsScreen.clickCompleteButton();
         logger.info("✅ Validate Settings Complete – all Vault Settings flows finished");
+
+        //-- On sign- Transaction
+        vaultsPage.clickSettingsButton();
+        settingsScreen.clickVaultSettings();
+        Thread.sleep(1500);
+        settingsScreen.clickAdvancedOption();
+        Thread.sleep(20000);
+
+
     }
     
 }
