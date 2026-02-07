@@ -11,7 +11,7 @@ public class VaultBackupScreen extends BaseScreen {
     private WebElement backupVaultTitle;
 
     // 🔹 Step 2: Next button
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]")
     private WebElement nextButton;
 
     // 🔹 Constructor

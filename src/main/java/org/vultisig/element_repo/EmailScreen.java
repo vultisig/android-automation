@@ -16,10 +16,10 @@ public class EmailScreen extends BaseScreen {
     private WebElement emailTextField;
 
     // 🔹 Step 3: Next button
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
     private WebElement nextButton;
 
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]")
     private static WebElement backButton;
 
     // 🔹 Text: "This email is only used to send the server backup"
@@ -27,7 +27,7 @@ public class EmailScreen extends BaseScreen {
     private static WebElement serverBackupInfoText;
 
     // Clear text button (x icon)
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View")
     private static WebElement clearEmailButton;
 
     // Error text for wrong format

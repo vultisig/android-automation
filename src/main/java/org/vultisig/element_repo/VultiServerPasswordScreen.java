@@ -13,7 +13,7 @@ public class VultiServerPasswordScreen extends BaseScreen {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text='Password cannot be reset or recovered']")
     private WebElement passwordResetWarningText;
 
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]")
     private static WebElement backButton;
 
     // 🔹 Step 2: Password field
@@ -25,7 +25,7 @@ public class VultiServerPasswordScreen extends BaseScreen {
     private WebElement confirmPasswordField;
 
     // 🔹 Step 4: Next button
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
     private WebElement nextButton;
 
     // Eye icon for password visibility toggle

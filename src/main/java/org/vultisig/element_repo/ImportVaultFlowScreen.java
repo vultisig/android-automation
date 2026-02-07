@@ -15,7 +15,7 @@ public class ImportVaultFlowScreen extends BaseScreen {
     private WebElement importTitle;
 
     // 🔹 Import icon
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]")
     private WebElement importIcon;
 
     // 🔹 Downloads screen title
@@ -23,7 +23,7 @@ public class ImportVaultFlowScreen extends BaseScreen {
     private WebElement downloadsTitle;
 
     // 🔹 Back button
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]")
     private WebElement backButton;
 
     // 🔹 Existing vault
@@ -31,7 +31,7 @@ public class ImportVaultFlowScreen extends BaseScreen {
     private WebElement existingVault;
 
     // 🔹 Continue button
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
     private WebElement continueButton;
 
     // 🔹 Verify your Server Share Password title

@@ -5,6 +5,7 @@
         <classes>
             <class name="actionTree.E2E_CreateFastVault_SkipOnboarding_HintScreen_BkupWithoutPwd" />
             <class name="actionTree.E2E_CreateFastVault_SkipOnboarding_SkipHint_BkupWithoutPwd" />
+            <class name="actionTree.E2E_CreateFastVault_ValidateSettings" />
             <class name="actionTree.Validate_ChooseSetup_Screen" />
             <class name="actionTree.Validate_EmailScreen" />
             <class name="actionTree.Validate_ImportVault" />

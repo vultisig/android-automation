@@ -23,7 +23,7 @@ public class SettingsScreen extends BaseScreen {
     }
     // 🔹 Back button on Settings screen (same xpath used on Vault Settings and other screens)
     @AndroidFindBy(
-            xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]"
+            xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]"
     )
     private WebElement backButton;
     // ---------- Titles / Texts ----------
@@ -54,19 +54,19 @@ public class SettingsScreen extends BaseScreen {
 
     // Open Share Vault QR section
     @AndroidFindBy(
-            xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]"
+            xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]"
     )
     private WebElement openShareQrButton;
 
     // Share button
     @AndroidFindBy(
-            xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]"
+            xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]"
     )
     private WebElement shareButton;
 
     // Save button
     @AndroidFindBy(
-            xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[4]"
+            xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[4]"
     )
     private WebElement saveButton;
 
@@ -242,7 +242,7 @@ public class SettingsScreen extends BaseScreen {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Signer 2\"]")
     private WebElement signer2Text;
 
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
     private WebElement detailsShareButton;
 
     // --- Rename ---
@@ -252,16 +252,16 @@ public class SettingsScreen extends BaseScreen {
     @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"Fast Vault #702\"]/android.view.View")
     private WebElement renameEditTextWrapper;
 
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View")
     private WebElement renameClearIcon;
 
     @AndroidFindBy(xpath = "//android.widget.EditText")
     private WebElement renameTextField;
 
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]")
     private WebElement renameSaveButton;
 
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.view.View[1]")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.view.View[1]")
     private WebElement renameBackButton;
 
     // --- Backup vault share option ---
@@ -296,25 +296,25 @@ public class SettingsScreen extends BaseScreen {
     @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View/android.view.View[1]")
     private WebElement signTransactionOption;
 
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]/android.view.View/android.widget.EditText")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]/android.view.View/android.widget.EditText")
     private WebElement signingMethodTextField;
 
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[2]/android.view.View/android.widget.EditText")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[2]/android.view.View/android.widget.EditText")
     private WebElement messageToSignTextField;
 
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[3]")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[3]")
     private WebElement signTransactionContinueButton;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Verify\"]")
     private WebElement verifyText;
 
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]")
     private WebElement fastSignButton;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Enter your password\"]")
     private WebElement enterYourPasswordText;
 
-    @AndroidFindBy(xpath = "//android.view.ViewGroup/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[1]/android.view.View[2]")
+    @AndroidFindBy(xpath = "//android.view.ViewGroup/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[1]/android.view.View[3]")
     private WebElement signVerifyContinueButton;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Overview\"]")
@@ -329,8 +329,120 @@ public class SettingsScreen extends BaseScreen {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Signature\"]")
     private WebElement signatureText;
 
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]")
     private WebElement completeButton;
+
+    //---------On-chain security -----------
+    // --- On-chain Security option (Advanced section) ---
+    @AndroidFindBy(
+            xpath = "//android.widget.ScrollView/android.view.View/android.view.View[3]"
+    )
+    private WebElement onChainSecurityOption;
+
+    // Title & description
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Security']")
+    private WebElement onChainSecurityTitle;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Manage your on-chain security']")
+    private WebElement manageOnChainSecurityTitle;
+
+    @AndroidFindBy(
+            xpath = "//android.widget.TextView[@text=\"You can disable your realtime on-chain security provided by Blockaid.\"]"
+    )
+    private WebElement onChainSecurityDescription;
+
+    // Toggle (same XPath used for enable / disable)
+    @AndroidFindBy(
+            xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]"
+    )
+    private WebElement onChainSecurityToggle;
+
+    // Disable warning texts
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='On-chain security disabled']")
+    private WebElement onChainSecurityDisabledTitle;
+
+    @AndroidFindBy(
+            xpath = "//android.widget.TextView[@text=\"Disabling on-chain security means Blockaid can't verify transactions. You'll be less protected\"]"
+    )
+    private WebElement onChainSecurityDisabledDescription;
+
+    // Continue anyway button
+    @AndroidFindBy(
+            xpath = "//android.view.ViewGroup/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[2]"
+    )
+    private WebElement continueAnywayButton;
+    // Go Back button (On-chain Security warning screen)
+    @AndroidFindBy(
+            xpath = "//android.view.ViewGroup/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]"
+    )
+    private WebElement onChainSecurityGoBackButton;
+
+    // Back button on On-chain Security screen
+    @AndroidFindBy(xpath = "//android.widget.Button")
+    private WebElement onChainSecurityBackButton;
+
+    //-------Delete Module__________
+
+    // ==================== Delete Vault ====================
+
+    // Delete option click (from Vault Settings list)
+    @AndroidFindBy(
+            xpath = "//android.widget.ScrollView/android.view.View[4]/android.view.View"
+    )
+    private WebElement deleteVaultOption;
+
+    // Delete screen title
+    @AndroidFindBy(
+            xpath = "(//android.widget.TextView[@text='Delete'])[1]"
+    )
+    private WebElement deleteTitle;
+
+    // Vault name shown on delete screen (dynamic)
+    @AndroidFindBy(xpath = "//android.widget.TextView")
+    private WebElement deleteVaultNameText;
+
+    // Labels & values
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Vault Value:']")
+    private WebElement vaultValueLabel;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Vault Share:']")
+    private WebElement vaultShareLabelDeleteScreen;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='Share 1-of-2']")
+    private WebElement shareOneOfTwoText;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='ECDSA Key:']")
+    private WebElement ecdsaKeyLabel;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='EdDSA Key:']")
+    private WebElement eddsaKeyLabel;
+
+    // Acknowledgement texts
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='I am aware that the vault will be deleted permanently']")
+    private WebElement awarePermanentDeleteText;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='I am aware that I can lose funds']")
+    private WebElement awareLoseFundsText;
+
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text='I have made a vault backup']")
+    private WebElement vaultBackupConfirmationText;
+
+    // Delete button (disabled by default)
+    @AndroidFindBy(
+            xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]"
+    )
+    private WebElement deleteButton;
+
+    // Checkboxes
+    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[7]/android.view.View")
+    private WebElement deleteCheckbox1;
+
+    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[8]/android.view.View")
+    private WebElement deleteCheckbox2;
+
+    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[9]/android.view.View")
+    private WebElement deleteCheckbox3;
+
 
     // ---------- Vault Settings actions ----------
 
@@ -675,4 +787,127 @@ public class SettingsScreen extends BaseScreen {
         ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
         logger.info("✅ Android back key pressed");
     }
+
+    //------On-Chain Security ----
+    public void openOnChainSecurity() {
+        waitForVisibility(onChainSecurityOption).click();
+        logger.info("✅ On-chain Security option opened");
+    }
+
+    public void clickOnChainSecurityToggle() {
+        waitForVisibility(onChainSecurityToggle).click();
+        logger.info("✅ On-chain Security toggle clicked");
+    }
+
+    public void clickContinueAnywayButton() {
+        waitForVisibility(continueAnywayButton).click();
+        logger.info("✅ Continue Anyway button clicked");
+    }
+    public boolean isOnChainSecurityTitleDisplayed() {
+        return onChainSecurityTitle.isDisplayed();
+    }
+
+
+    public boolean isOnChainSecurityDescriptionDisplayed() {
+        return onChainSecurityDescription.isDisplayed();
+    }
+
+    /**
+     * Toggle should be visible & enabled by default
+     * (UI doesn't expose true state, so visibility = enabled assumption)
+     */
+    public boolean isOnChainSecurityEnabledByDefault() {
+        return onChainSecurityToggle.isEnabled();
+    }
+
+    public boolean isOnChainSecurityDisabledTitleDisplayed() {
+        return onChainSecurityDisabledTitle.isDisplayed();
+    }
+
+    public boolean isOnChainSecurityDisabledDescriptionDisplayed() {
+        return onChainSecurityDisabledDescription.isDisplayed();
+    }
+
+    public void clickOnChainSecurityGoBackButton() {
+        waitForVisibility(onChainSecurityGoBackButton).click();
+        logger.info("✅ On-chain Security Go Back button clicked");
+    }
+
+    public void clickOnChainSecurityBackButton() {
+        waitForVisibility(onChainSecurityBackButton).click();
+        logger.info("✅ Back button clicked on On-chain Security screen");
+    }
+
+
+    //---Delete Vault Module---------
+    public void clickDeleteVaultOption() {
+        waitForVisibility(deleteVaultOption).click();
+        logger.info("✅ Delete vault option clicked");
+    }
+
+    public void clickDeleteCheckbox1() {
+        waitForVisibility(deleteCheckbox1).click();
+        logger.info("✅ Delete checkbox 1 clicked");
+    }
+
+    public void clickDeleteCheckbox2() {
+        waitForVisibility(deleteCheckbox2).click();
+        logger.info("✅ Delete checkbox 2 clicked");
+    }
+
+    public void clickDeleteCheckbox3() {
+        waitForVisibility(deleteCheckbox3).click();
+        logger.info("✅ Delete checkbox 3 clicked");
+    }
+
+    public void clickFinalDeleteButton() {
+        waitForVisibility(deleteButton).click();
+        logger.info("🔥 Final Delete button clicked");
+    }
+
+    public boolean isDeleteTitleDisplayed() {
+        return deleteTitle.isDisplayed();
+    }
+
+    public boolean isDeleteVaultNameDisplayed(String expectedVaultName) {
+        return waitForElementSafe("//android.widget.TextView[@text=\"" + expectedVaultName + "\"]");
+    }
+
+    public boolean isVaultValueLabelDisplayed() {
+        return vaultValueLabel.isDisplayed();
+    }
+
+    public boolean isVaultShareLabelDeleteScreenDisplayed() {
+        return vaultShareLabelDeleteScreen.isDisplayed();
+    }
+
+    public boolean isShareOneOfTwoDisplayed() {
+        return shareOneOfTwoText.isDisplayed();
+    }
+
+    public boolean isEcdsaKeyLabelDisplayed() {
+        return ecdsaKeyLabel.isDisplayed();
+    }
+
+    public boolean isEddsaKeyLabelDisplayed() {
+        return eddsaKeyLabel.isDisplayed();
+    }
+
+    public boolean isPermanentDeleteWarningDisplayed() {
+        return awarePermanentDeleteText.isDisplayed();
+    }
+
+    public boolean isLoseFundsWarningDisplayed() {
+        return awareLoseFundsText.isDisplayed();
+    }
+
+    public boolean isVaultBackupConfirmationDisplayed() {
+        return vaultBackupConfirmationText.isDisplayed();
+    }
+
+    public boolean isDeleteButtonDisabledByDefault() {
+        return !deleteButton.isEnabled();
+    }
+
+
 }

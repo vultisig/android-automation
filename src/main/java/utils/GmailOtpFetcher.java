@@ -27,7 +27,11 @@ public class GmailOtpFetcher {
 
         Session session = Session.getInstance(props, null);
         Store store = session.getStore("imaps");
-        store.connect("imap.gmail.com", userEmail, appPassword);
+        String normalizedAppPassword = appPassword == null ? "" : appPassword.replaceAll("\\s+", "");
+        if (normalizedAppPassword.length() != 16) {
+            throw new IllegalArgumentException("App password must be 16 characters (spaces are ignored).");
+        }
+        store.connect("imap.gmail.com", userEmail, normalizedAppPassword);
 
         Folder inbox = store.getFolder("INBOX");
         inbox.open(Folder.READ_WRITE);

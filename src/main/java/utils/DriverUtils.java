@@ -28,25 +28,36 @@ public class DriverUtils {
         caps.setCapability("appium:automationName", jsonObj.getString("automationName"));
         caps.setCapability("appium:newCommandTimeout", 3600);
         caps.setCapability("appium:autoGrantPermissions", true);
+       // caps.setCapability("appium:noReset", true);
+        //caps.setCapability("appium:fullReset", false);
+       // caps.setCapability("appium:dontStopAppOnReset", true);
+
+
 
         // ✅ Build APK path safely
-        String appPath = Paths.get(
-                System.getProperty("user.dir"),
-                jsonObj.getString("app_url")
-        ).toString();
+        // 📦 Auto-detect latest APK inside apps/android folder
+        File apkDir = Paths.get(System.getProperty("user.dir"), "apps", "android").toFile();
 
-        File apk = new File(appPath);
-        if (!apk.exists()) {
-            throw new RuntimeException("❌ APK not found at: " + apk.getAbsolutePath());
+        File[] apks = apkDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".apk"));
+
+        if (apks == null || apks.length == 0) {
+            throw new RuntimeException("❌ No APK files found in: " + apkDir.getAbsolutePath());
         }
 
-        caps.setCapability("appium:app", apk.getAbsolutePath());
+        File latestApk = java.util.Arrays.stream(apks)
+                .max(java.util.Comparator.comparingLong(File::lastModified))
+                .orElseThrow(() -> new RuntimeException("❌ Could not determine latest APK"));
+
+        caps.setCapability("appium:app", latestApk.getAbsolutePath());
+
+        System.out.println("📦 Using latest APK: " + latestApk.getName());
+
 
         driver = new AndroidDriver(appiumServerUrl, caps);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
         System.out.println("✅ Driver initialized");
-        System.out.println("📦 APK Path: " + apk.getAbsolutePath());
+        System.out.println("📦 APK Path: " + latestApk.getAbsolutePath());
     }
 
     public static AppiumDriver getDriver() {

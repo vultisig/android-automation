@@ -19,7 +19,7 @@ public class BackupPasswordScreen extends BaseScreen {
     private WebElement confirmPasswordField;
 
     // 🔹 Step 4: Next button
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
     private WebElement nextButton;
 
     // 🔹 Constructor

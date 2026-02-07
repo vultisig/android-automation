@@ -20,7 +20,7 @@ public class VaultOverviewScreen extends BaseScreen {
     private static WebElement backupInfoText;
 
     // 🔹 Step 2 button
-    @AndroidFindBy(xpath = "//z1.r0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View")
+    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View")
     private static WebElement backupButton;
 
     // 🔹 Step 3: Server holds part 1 info

@@ -116,7 +116,7 @@ public class E2E_CreateFastVault_SkipOnboarding_HintScreen_BkupWithoutPwd extend
         OtpRetryHandler.enterOtpWithRetry(
                 DriverUtils.getDriver(),
                 "brajaautomation@gmail.com",
-                "msghkcymrblvhmoc",
+                "dcef xkvk fgcn jsxx",
                 "vultisig",
                 3
         );
