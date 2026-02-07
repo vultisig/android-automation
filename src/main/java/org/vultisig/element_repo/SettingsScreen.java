@@ -245,6 +245,17 @@ public class SettingsScreen extends BaseScreen {
     @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
     private WebElement detailsShareButton;
 
+    // ==================== Details Screen – Stored Values ====================
+
+    @AndroidFindBy(
+            xpath = "(//android.widget.TextView[@text='$0.00'])[5]"
+    )
+    private WebElement detailsBalanceValue;
+
+
+
+
+
     // --- Rename ---
     @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[1]/android.view.View[3]")
     private WebElement renameButton;
@@ -599,6 +610,26 @@ public class SettingsScreen extends BaseScreen {
     public boolean isSigner2Displayed() {
         return waitForElementSafe("//android.widget.TextView[@text=\"Signer 2\"]");
     }
+
+
+    // ---------------- DETAILS GETTERS ----------------
+
+    public String getDetailsBalanceValue() {
+        String value = waitForVisibility(detailsBalanceValue).getText();
+        logger.info("📌 Stored Balance value: " + value);
+        return value;
+    }
+
+
+
+    // ---------------- DELETE VALIDATIONS ----------------
+
+    public boolean isDeleteBalanceValueMatching(String expected) {
+        return waitForElementSafe("//android.widget.TextView[@text=\"" + expected + "\"]");
+    }
+
+
+
 
     public void clickDetailsShareButton() {
         waitForVisibility(detailsShareButton).click();

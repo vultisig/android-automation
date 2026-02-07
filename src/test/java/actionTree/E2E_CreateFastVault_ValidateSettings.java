@@ -144,6 +144,11 @@ public class E2E_CreateFastVault_ValidateSettings extends BaseTest {
         logger.info("✅ Backup Guide checkbox clicked and Next pressed");
         Thread.sleep(3000);
 
+
+        //=======================Store Balance ====================
+
+        String storedBalance = settingsScreen.getDetailsBalanceValue();
+
         // ---------------------- Settings Page---------------------
         logger.info("Validate the Settings Screen...");
         vaultsPage.clickSettingsButton();
@@ -270,6 +275,8 @@ public class E2E_CreateFastVault_ValidateSettings extends BaseTest {
         Assert.assertTrue(settingsScreen.isTwoOfTwoVaultSetupDisplayed(), "❌ 2-of-2 Vault Setup not displayed");
         Assert.assertTrue(settingsScreen.isSigner1Displayed(), "❌ Signer 1 not displayed");
         Assert.assertTrue(settingsScreen.isSigner2Displayed(), "❌ Signer 2 not displayed");
+        // ----------- Store Details Screen Values -----------
+        Thread.sleep(1000);
         settingsScreen.clickDetailsShareButton();
         Thread.sleep(1000);
         settingsScreen.pressAndroidBack();
@@ -357,6 +364,7 @@ public class E2E_CreateFastVault_ValidateSettings extends BaseTest {
 
             settingsScreen.openOnChainSecurity();
             logger.info("Checking if it is enabled ");
+            Thread.sleep(2000);
             Assert.assertTrue(settingsScreen.isOnChainSecurityEnabledByDefault());
             logger.info("it is enabled");
             logger.info("Click on the toggle");
@@ -382,6 +390,7 @@ public class E2E_CreateFastVault_ValidateSettings extends BaseTest {
         // ----------- Delete Vault Flow -----------
         logger.info("🔴 Validating Delete Vault flow");
 
+
         settingsScreen.clickDeleteVaultOption();
         Thread.sleep(1500);
 
@@ -404,6 +413,18 @@ public class E2E_CreateFastVault_ValidateSettings extends BaseTest {
 // Delete button should be disabled initially
         Assert.assertTrue(settingsScreen.isDeleteButtonDisabledByDefault(), "❌ Delete button should be disabled");
 
+
+
+        // ----------- Validate values on Delete Screen -----------
+
+        Assert.assertTrue(
+                settingsScreen.isDeleteBalanceValueMatching(storedBalance),
+                "❌ Balance value mismatch on Delete screen"
+        );
+
+
+
+
 // Check all confirmations
         settingsScreen.clickDeleteCheckbox1();
         settingsScreen.clickDeleteCheckbox2();
@@ -412,6 +433,8 @@ public class E2E_CreateFastVault_ValidateSettings extends BaseTest {
 // Now delete button should be enabled → click it
         settingsScreen.clickFinalDeleteButton();
 
-    }
+        logger.info("Deleted Vault successfully");
 
+
+    }
 }
