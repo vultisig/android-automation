@@ -6,23 +6,22 @@ import org.vultisig.element_repo.*;
 import tests.BaseTest;
 import utils.DriverUtils;
 import utils.OtpRetryHandler;
-
 import java.util.logging.Logger;
+import org.vultisig.element_repo.HomePage;
+
 
 public class E2E_CreateFastVault_ValidateSettings extends BaseTest {
 
-    private static final Logger logger =
-            Logger.getLogger(E2E_CreateFastVault_ValidateSettings.class.getName());
+    private static final Logger logger = Logger.getLogger(
+            E2E_CreateFastVault_ValidateSettings.class.getName()
+    );
 
-    @Test(
-            description = "Complete E2E flow: Create Fast Vault → Validate Settings → Vault Settings → Advanced → Delete"
-    )
+    @Test(description = "Complete E2E flow: Create Fast Vault → Skip Onboarding & Hint → Backup Without Password → Validate Downloads → Validate Vaults")
     public void Validate_Settings() throws Exception {
 
-        logger.info("🚀 Launching app and starting E2E flow");
+        logger.info("🚀 Launching app and starting E2E flow...");
 
-        // ==================== Initialize Screens ====================
-
+        // ---------------------- Initialize Screens ----------------------
         StartScreen startScreen = new StartScreen(DriverUtils.getDriver());
         OnboardingScreen2 onboardingScreen2 = new OnboardingScreen2(DriverUtils.getDriver());
         QuickSummaryScreen quickSummaryScreen = new QuickSummaryScreen(DriverUtils.getDriver());
@@ -33,93 +32,87 @@ public class E2E_CreateFastVault_ValidateSettings extends BaseTest {
         OptionalHintScreen hintScreen = new OptionalHintScreen(DriverUtils.getDriver());
         VaultOverviewScreen overviewScreen = new VaultOverviewScreen(DriverUtils.getDriver());
         VaultBackupScreen vaultBackupScreen = new VaultBackupScreen(DriverUtils.getDriver());
+        BackupChoiceScreen backupChoiceScreen = new BackupChoiceScreen(DriverUtils.getDriver());
         DownloadsPage downloadsPage = new DownloadsPage(DriverUtils.getDriver());
         BackupGuideScreen backupGuideScreen = new BackupGuideScreen(DriverUtils.getDriver());
         HomePage vaultsPage = new HomePage(DriverUtils.getDriver());
-        SettingsScreen settingsScreen = new SettingsScreen(DriverUtils.getDriver());
+        SettingsScreen settingsScreen =  new SettingsScreen(DriverUtils.getDriver());
 
-        // ==================== Start Screen ====================
-
-        logger.info("🔹 Validating Welcome screen");
+        // ---------------------- StartScreen ----------------------
+        logger.info("🔹 Validating Welcome Screen...");
         Assert.assertTrue(startScreen.isVultisigLogoDisplayed(), "❌ Vultisig logo should be visible");
         startScreen.clickCreateNewVaultButton();
-        logger.info("✅ Create New Vault clicked");
+        logger.info("✅ Clicked 'Create New Vault'");
 
-        // ==================== Onboarding ====================
-
-        logger.info("🔹 Skipping onboarding");
-        Assert.assertTrue(onboardingScreen2.isSkipButtonDisplayed(), "❌ Skip button missing");
+        // ---------------------- OnboardingScreen ----------------------
+        logger.info("🔹 Skipping Onboarding...");
+        Assert.assertTrue(onboardingScreen2.isSkipButtonDisplayed(), "❌ Skip button should be visible");
         onboardingScreen2.clickSkipButton();
-        logger.info("✅ Onboarding skipped");
+        logger.info("✅ Skip button clicked");
 
-        // ==================== Quick Summary ====================
-
-        logger.info("🔹 Validating Quick Summary");
-        Assert.assertTrue(
-                quickSummaryScreen.isReadAndUnderstandWhatToDoDisplayed(),
-                "❌ Quick Summary text missing"
-        );
+        // ---------------------- QuickSummaryScreen ----------------------
+        logger.info("🔹 Quick Summary validation...");
+        Assert.assertTrue(quickSummaryScreen.isReadAndUnderstandWhatToDoDisplayed(), "❌ Quick Summary text not displayed");
         quickSummaryScreen.clickCheckboxAndWaitForCreateVault();
         quickSummaryScreen.clickCreateVault();
-        logger.info("✅ Quick Summary completed");
+        logger.info("✅ Quick Summary checkbox clicked and Create Vault pressed");
 
-        // ==================== Setup ====================
-
-        logger.info("🔹 Selecting Fast Vault");
+        // ---------------------- SetupScreen ----------------------
+        logger.info("🔹 Setup screen validation...");
         setupScreen.clickFastVaultBox();
-        Assert.assertTrue(setupScreen.isContinueButtonDisplayed(), "❌ Continue button missing");
+        Assert.assertTrue(setupScreen.isContinueButtonDisplayed(), "❌ Continue button should be visible");
         setupScreen.clickContinueButton();
-        logger.info("✅ Fast Vault selected");
+        logger.info("✅ Fast Vault selected and Continue clicked");
 
-        // ==================== Vault Name ====================
-
-        logger.info("🔹 Entering vault name");
-        Assert.assertTrue(vaultNameScreen.isNameYourVaultDisplayed(), "❌ Name Your Vault title missing");
+        // ---------------------- VaultNameScreen ----------------------
+        logger.info("🔹 Vault Name screen validation...");
+        Assert.assertTrue(vaultNameScreen.isNameYourVaultDisplayed(), "❌ 'Name your vault' title should be visible");
         vaultNameScreen.clickClearTextButton();
         vaultNameScreen.enterVaultName(DriverUtils.getDriver());
         vaultNameScreen.clickContinueButton();
-
         String vaultName = vaultNameScreen.getLastVaultName();
-        logger.info("✅ Vault name created: " + vaultName);
+        logger.info("✅ Vault name entered: " + vaultName);
 
-        // ==================== Email ====================
-
-        logger.info("🔹 Entering email");
-        Assert.assertTrue(emailScreen.isEnterEmailDisplayed(), "❌ Enter Email title missing");
+        // ---------------------- EmailScreen ----------------------
+        logger.info("🔹 Entering email...");
+        Assert.assertTrue(emailScreen.isEnterEmailDisplayed(), "❌ 'Enter your e-mail' title should be visible");
         emailScreen.enterEmail("brajaautomation@gmail.com");
         emailScreen.clickNextButton();
-        logger.info("✅ Email entered");
+        logger.info("✅ Email entered and Next clicked");
 
-        // ==================== Password ====================
-
-        logger.info("🔹 Setting password");
-        Assert.assertTrue(passwordScreen.isPasswordTitleDisplayed(), "❌ Password title missing");
+        // ---------------------- VultiserverPasswordScreen ----------------------
+        logger.info("🔹 Entering password...");
+        Assert.assertTrue(passwordScreen.isPasswordTitleDisplayed(), "❌ 'Vultiserver Password' title should be visible");
         passwordScreen.enterPassword("Test@123");
         passwordScreen.confirmPassword("Test@123");
         passwordScreen.clickNextButton();
-        logger.info("✅ Password set");
+        logger.info("✅ Password entered, confirmed, and Next clicked");
 
-        // ==================== Optional Hint ====================
-
-        logger.info("🔹 Skipping optional hint");
-        Assert.assertTrue(hintScreen.isOptionalHintTitleDisplayed(), "❌ Optional hint title missing");
+        // ---------------------- OptionalHintScreen ----------------------
+        logger.info("🔹 Skipping optional hint...");
+        Assert.assertTrue(hintScreen.isOptionalHintTitleDisplayed(), "❌ 'Add an optional hint' title should be visible");
         hintScreen.clickSkipButton();
         logger.info("✅ Hint skipped");
 
-        // ==================== Vault Overview ====================
-
-        logger.info("🔹 Validating Vault Overview");
-        Assert.assertTrue(overviewScreen.isVaultOverviewTitleDisplayed(), "❌ Vault Overview missing");
+        // ---------------------- VaultOverviewScreen ----------------------
+        logger.info("🔹 Validating Vault Overview...");
+        Assert.assertTrue(overviewScreen.isVaultOverviewTitleDisplayed(), "❌ Vault Overview title missing");
         Assert.assertTrue(overviewScreen.isBackupInfoDisplayed(), "❌ Backup info missing");
-
         overviewScreen.clickBackupButton();
+        Assert.assertTrue(overviewScreen.isServerShareTextDisplayed(), "❌ Server share info missing");
         overviewScreen.clickServerShareNextButton();
+        Assert.assertTrue(overviewScreen.isSelfCustodyTextDisplayed(), "❌ Self-custody info missing");
         overviewScreen.clickSelfCustodyNextButton();
-        logger.info("✅ Vault Overview flow completed");
+        logger.info("✅ Vault Overview validated and navigated through backup info");
 
-        // ==================== OTP ====================
+        // ---------------------- OTP Screen ----------------------
+        logger.info("🔹 Fetching OTP...");
+        String userEmail = "brajaautomation@gmail.com";
+        String appPassword = "msgh kcym rblv hmoc";
+        String senderEmail = "vultisig";
 
-        logger.info("🔹 Entering OTP");
+        logger.info("🔹 Entering OTP with retry...");
+
         OtpRetryHandler.enterOtpWithRetry(
                 DriverUtils.getDriver(),
                 "brajaautomation@gmail.com",
@@ -127,154 +120,298 @@ public class E2E_CreateFastVault_ValidateSettings extends BaseTest {
                 "vultisig",
                 3
         );
-        logger.info("✅ OTP verified");
 
-        // ==================== Backup Vault ====================
+        logger.info("✅ OTP flow completed successfully");
 
-        Assert.assertTrue(vaultBackupScreen.isBackupVaultTitleDisplayed(), "❌ Backup Vault title missing");
+        // ---------------------- VaultBackupScreen ----------------------
+        logger.info("🔹 Validating Backup Vault screen...");
+        Assert.assertTrue(vaultBackupScreen.isBackupVaultTitleDisplayed(), "❌ 'Backup Vault' title missing");
         vaultBackupScreen.clickNextButton();
+        logger.info("✅ Backup Vault Next clicked");
 
-        // ==================== Downloads ====================
-
-        Assert.assertTrue(downloadsPage.isDownloadsPageDisplayed(DriverUtils.getDriver()));
-        Assert.assertTrue(downloadsPage.isVaultNamePresent(vaultName, DriverUtils.getDriver()));
+        // ---------------------- DownloadsPage ----------------------
+        logger.info("🔹 Validating Downloads Page...");
+        Assert.assertTrue(downloadsPage.isDownloadsPageDisplayed(DriverUtils.getDriver()), "❌ Downloads page not visible");
+        Assert.assertTrue(downloadsPage.isVaultNamePresent(vaultName, DriverUtils.getDriver()), "❌ Vault name missing in file saving field");
         downloadsPage.clickSaveButton();
-        logger.info("✅ Vault file saved");
+        logger.info("✅ Vault file saved successfully");
 
-        // ==================== Backup Guide ====================
-
-        Assert.assertTrue(backupGuideScreen.isBackupGuideDisplayed(DriverUtils.getDriver()));
+        // ---------------------- BackupGuideScreen ----------------------
+        logger.info("🔹 Validating Backup Guide screen...");
+        Assert.assertTrue(backupGuideScreen.isBackupGuideDisplayed(DriverUtils.getDriver()), "❌ Backup guide missing");
         backupGuideScreen.clickCheckBox();
         backupGuideScreen.clickNextButton(DriverUtils.getDriver());
+        logger.info("✅ Backup Guide checkbox clicked and Next pressed");
         Thread.sleep(3000);
 
-        // ==================== Settings ====================
-
-        logger.info("🔹 Opening Settings");
+        // ---------------------- Settings Page---------------------
+        logger.info("Validate the Settings Screen...");
         vaultsPage.clickSettingsButton();
+        logger.info("Button CLicked ...");
         Thread.sleep(2000);
-
+        logger.info("Click Back button and return back to the Settings screen ") ;
         settingsScreen.clickBackButton();
         Thread.sleep(1000);
         vaultsPage.clickSettingsButton();
+        logger.info("Button CLicked ...");
 
-        Assert.assertTrue(settingsScreen.isSettingsTitleDisplayed(), "❌ Settings title missing");
+        //-----------Validate Settings Text  ------------------
+
+        // ----------- Validate Settings Screen Content -----------
+
+        Assert.assertTrue(
+                settingsScreen.isSettingsTitleDisplayed(),
+                "❌ Settings title not displayed"
+        );
 
         settingsScreen.openShareVaultQr();
-        Assert.assertTrue(settingsScreen.isShareVaultQrTitleDisplayed());
-        Assert.assertTrue(settingsScreen.isVaultNameCorrect(vaultName));
-        Assert.assertTrue(settingsScreen.isVultisigDomainDisplayed());
-        Assert.assertTrue(settingsScreen.isQrDescriptionDisplayed());
+
+        Assert.assertTrue(
+                settingsScreen.isShareVaultQrTitleDisplayed(),
+                "❌ Share Vault QR title not displayed"
+        );
+
+        Assert.assertTrue(
+                settingsScreen.isVaultNameCorrect(vaultName),
+                "❌ Vault name does not match previously created vault"
+        );
+
+        Assert.assertTrue(
+                settingsScreen.isVultisigDomainDisplayed(),
+                "❌ vultisig.com text not displayed"
+        );
+
+        Assert.assertTrue(
+                settingsScreen.isQrDescriptionDisplayed(),
+                "❌ QR description text not displayed"
+        );
+
+// ----------- Share Flow -----------
 
         settingsScreen.clickShareButton();
-        Assert.assertTrue(settingsScreen.isSharingImageTextDisplayed());
+
+        Assert.assertTrue(
+                settingsScreen.isSharingImageTextDisplayed(),
+                "❌ Sharing image text not displayed"
+        );
+
         settingsScreen.closeShareDialog();
+
+// ----------- Save Flow -----------
 
         settingsScreen.clickSaveButton();
         Thread.sleep(1500);
 
         // ==================== Vault Settings ====================
-
-        logger.info("🔹 Opening Vault Settings");
+        logger.info("🔹 Opening Vault Settings...");
         settingsScreen.clickVaultSettings();
         Thread.sleep(1500);
-        Assert.assertTrue(settingsScreen.isVaultSettingsTitleDisplayed());
+        Assert.assertTrue(settingsScreen.isVaultSettingsTitleDisplayed(), "❌ Vault Settings title not displayed");
 
+        // Verify back button: go back and re-enter Vault Settings
+        logger.info("🔹 Verifying back button on Vault Settings...");
         settingsScreen.clickBackButton();
         Thread.sleep(1000);
         settingsScreen.clickVaultSettings();
         Thread.sleep(1500);
+        Assert.assertTrue(settingsScreen.isVaultSettingsTitleDisplayed(), "❌ Vault Settings title not displayed after back");
 
-        // ==================== Vault Management ====================
+        // ----------- Vault Management -----------
+        logger.info("🔹 Validating Vault Management section...");
+        Assert.assertTrue(settingsScreen.isVaultManagementDisplayed(), "❌ Vault Management text not displayed");
+        Assert.assertTrue(settingsScreen.isDetailsTextDisplayed(), "❌ Details text not displayed");
+        Assert.assertTrue(settingsScreen.isRenameTextDisplayed(), "❌ Rename text not displayed");
+        Assert.assertTrue(settingsScreen.isEditYourVaultNameDisplayed(), "❌ Edit your vault name not displayed");
 
-        Assert.assertTrue(settingsScreen.isVaultManagementDisplayed());
-        Assert.assertTrue(settingsScreen.isDetailsTextDisplayed());
-        Assert.assertTrue(settingsScreen.isRenameTextDisplayed());
-        Assert.assertTrue(settingsScreen.isEditYourVaultNameDisplayed());
-
-        // ==================== Biometrics ====================
-
+        // ----------- Biometrics fast sign -----------
+        logger.info("🔹 Validating Biometrics fast sign...");
+        Assert.assertTrue(settingsScreen.isBiometricsFastSignDisplayed(), "❌ Biometrics fast sign text not displayed");
         settingsScreen.clickBiometricsFastSignButton();
         Thread.sleep(1500);
-        Assert.assertTrue(settingsScreen.isEnableBiometricsFastSigningDisplayed());
-        Assert.assertTrue(settingsScreen.isBiometricsSaveButtonDisabled());
-
+        Assert.assertTrue(settingsScreen.isEnableBiometricsFastSigningDisplayed(), "❌ Enable Biometrics Fast Signing not displayed");
+        Assert.assertTrue(settingsScreen.isBiometricsSaveButtonDisabled(), "❌ Save button should be disabled by default");
+        Thread.sleep(1500);
         settingsScreen.clickBiometricsPasswordField();
+        Thread.sleep(1500);
         settingsScreen.enterBiometricsPassword("Test@123");
         settingsScreen.clickBiometricsSaveButton();
         Thread.sleep(2000);
+        Assert.assertTrue(settingsScreen.isBiometricsFastSignDisplayed(), "❌ Biometrics fast sign should be enabled back on Vault Settings");
 
-        // ==================== Details ====================
+        // ----------- Security & Other -----------
+        logger.info("🔹 Validating Security and Other sections...");
+        Assert.assertTrue(settingsScreen.isSecurityTextDisplayed(), "❌ Security text not displayed");
+        Assert.assertTrue(settingsScreen.isBackupVaultShareTextDisplayed(), "❌ Backup Vault Share not displayed");
+        Assert.assertTrue(settingsScreen.isBackupVaultShareDescDisplayed(), "❌ Backup Vault Share description not displayed");
+        Assert.assertTrue(settingsScreen.isOtherTextDisplayed(), "❌ Other text not displayed");
+        Assert.assertTrue(settingsScreen.isAdvancedTextDisplayed(), "❌ Advanced text not displayed");
+        Assert.assertTrue(settingsScreen.isReshareChangeTssDisplayed(), "❌ Reshare, change TSS text not displayed");
+        Assert.assertTrue(settingsScreen.isDeleteTextDisplayed(), "❌ Delete text not displayed");
+        Assert.assertTrue(settingsScreen.isDeleteVaultShareDescDisplayed(), "❌ Delete vault share description not displayed");
 
+        // ----------- Details -----------
+        logger.info("🔹 Opening Details...");
         settingsScreen.clickDetailsButton();
         Thread.sleep(1500);
-
-        Assert.assertTrue(settingsScreen.isVaultInfoDisplayed());
-        Assert.assertTrue(settingsScreen.isVaultNameLabelDisplayed());
-        Assert.assertTrue(settingsScreen.isVaultNameValueDisplayed(vaultName));
-        Assert.assertTrue(settingsScreen.isVaultShareLabelDisplayed());
-        Assert.assertTrue(settingsScreen.isVaultTypeLabelDisplayed());
-        Assert.assertTrue(settingsScreen.isDklsDisplayed());
-
+        Assert.assertTrue(settingsScreen.isDetailsTextDisplayed(), "❌ Details title not displayed");
+        Assert.assertTrue(settingsScreen.isVaultInfoDisplayed(), "❌ Vault Info not displayed");
+        Assert.assertTrue(settingsScreen.isVaultNameLabelDisplayed(), "❌ Vault Name label not displayed");
+        Assert.assertTrue(settingsScreen.isVaultNameValueDisplayed(vaultName), "❌ Vault name does not match: " + vaultName);
+        Assert.assertTrue(settingsScreen.isVaultShareLabelDisplayed(), "❌ Vault Share label not displayed");
+        Assert.assertTrue(settingsScreen.isVaultTypeLabelDisplayed(), "❌ Vault Type not displayed");
+        Assert.assertTrue(settingsScreen.isDklsDisplayed(), "❌ DKLS not displayed");
+        Assert.assertTrue(settingsScreen.isKeysTextDisplayed(), "❌ keys not displayed");
+        Assert.assertTrue(settingsScreen.isEcdsaKeyDisplayed(), "❌ ECDSA Key not displayed");
         settingsScreen.clickDetailsCopyIcon1();
+        Thread.sleep(500);
+        Assert.assertTrue(settingsScreen.isEddsaKeyDisplayed(), "❌ EdDSA Key not displayed");
         settingsScreen.clickDetailsCopyIcon2();
-
+        Thread.sleep(500);
+        Assert.assertTrue(settingsScreen.isTwoOfTwoVaultSetupDisplayed(), "❌ 2-of-2 Vault Setup not displayed");
+        Assert.assertTrue(settingsScreen.isSigner1Displayed(), "❌ Signer 1 not displayed");
+        Assert.assertTrue(settingsScreen.isSigner2Displayed(), "❌ Signer 2 not displayed");
+        settingsScreen.clickDetailsShareButton();
+        Thread.sleep(1000);
+        settingsScreen.pressAndroidBack();
+        Thread.sleep(1000);
         settingsScreen.clickBackButton();
-
-        // ==================== Rename ====================
-
-        settingsScreen.clickRenameButton();
         Thread.sleep(1500);
 
-        String renamedVault = SettingsScreen.getRenamedVaultName();
+        // ----------- Rename -----------
+        logger.info("🔹 Rename vault flow...");
+        settingsScreen.clickRenameButton();
+        Thread.sleep(1500);
+        Assert.assertTrue(settingsScreen.isRenameSectionDisplayed(), "❌ Rename section not displayed");
+        Assert.assertTrue(settingsScreen.isRenameEditTextSameAsVaultName(vaultName), "❌ Rename field should show vault name: " + vaultName);
         settingsScreen.clickRenameClearIcon();
+        Thread.sleep(500);
+        settingsScreen.clickRenameTextField();
+        String renamedVault = SettingsScreen.getRenamedVaultName();
         settingsScreen.enterRenameText(renamedVault);
         settingsScreen.clickRenameSaveButton();
         Thread.sleep(1500);
-
-        // ==================== Advanced ====================
-
-        settingsScreen.clickAdvancedOption();
+        vaultsPage.clickSettingsButton();
+        logger.info("Button CLicked ...");
+        Thread.sleep(2000);
+        logger.info("🔹 Opening Vault Settings...");
+        settingsScreen.clickVaultSettings();
         Thread.sleep(1500);
 
+        //----------- Off the Biometrics ---------
+        settingsScreen.clickBiometricsFastSignButton();
+
+
+        // ----------- Backup vault share -----------
+        logger.info("🔹 Backup vault share option...");
+        settingsScreen.clickBackupVaultShareOption();
+        Thread.sleep(1500);
+        Assert.assertTrue(settingsScreen.isSelectVaultsToBackupDisplayed(), "❌ Select vaults to backup not displayed");
+        Assert.assertTrue(settingsScreen.isChooseVaultBackupDescDisplayed(), "❌ Choose vault backup description not displayed");
+        Assert.assertTrue(settingsScreen.isThisVaultOnlyDisplayed(), "❌ This Vault Only not displayed");
+        settingsScreen.clickRenameBackButton();
+        Thread.sleep(1500);
+
+        // ----------- Advanced & Sign Transaction -----------
+        logger.info("🔹 Advanced and Sign Transaction...");
+        settingsScreen.clickAdvancedOption();
+        Thread.sleep(1500);
+        Assert.assertTrue(settingsScreen.isSignTransactionTextDisplayed(), "❌ Sign Transaction not displayed");
+        Assert.assertTrue(settingsScreen.isSignCustomMessageDisplayed(), "❌ Sign custom message not displayed");
+        Assert.assertTrue(settingsScreen.isOnChainSecurityDisplayed(), "❌ On-chain Security not displayed");
+        Assert.assertTrue(settingsScreen.isManageOnChainSecurityDisplayed(), "❌ Manage your on-chain security not displayed");
         settingsScreen.clickSignTransactionOption();
+        Thread.sleep(1500);
+        Assert.assertTrue(settingsScreen.isSignTransactionSectionDisplayed(), "❌ Sign Transaction section not displayed");
+        settingsScreen.clickSigningMethodTextField();
         settingsScreen.enterSigningMethod("Test");
+        settingsScreen.clickMessageToSignTextField();
         settingsScreen.enterMessageToSign("Test");
         settingsScreen.clickSignTransactionContinueButton();
-
+        Thread.sleep(1500);
+        Assert.assertTrue(settingsScreen.isVerifyTextDisplayed(), "❌ Verify text not displayed");
         settingsScreen.clickFastSignButton();
+        Thread.sleep(1000);
+        Assert.assertTrue(settingsScreen.isEnterYourPasswordDisplayed(), "❌ Enter your password not displayed");
         settingsScreen.enterSignPassword("Test@123");
         settingsScreen.clickSignVerifyContinueButton();
-
+        Thread.sleep(1500);
+        Assert.assertTrue(settingsScreen.isOverviewDisplayed(), "❌ Overview not displayed");
+        Assert.assertTrue(settingsScreen.isMethodDisplayed(), "❌ Method not displayed");
+        Assert.assertTrue(settingsScreen.isMessageLabelDisplayed(), "❌ Message not displayed");
+        Assert.assertTrue(settingsScreen.isSignatureDisplayed(), "❌ Signature not displayed");
         settingsScreen.clickCompleteButton();
+        logger.info("✅ Validate Settings Complete – all Vault Settings flows finished");
+        Thread.sleep(2000);
 
-        // ==================== On-Chain Security ====================
 
-        settingsScreen.openOnChainSecurity();
-        Assert.assertTrue(settingsScreen.isOnChainSecurityEnabledByDefault());
 
+            //-- On sign- Transaction
+            vaultsPage.clickSettingsButton();
+            settingsScreen.clickVaultSettings();
+            Thread.sleep(1500);
+            settingsScreen.clickAdvancedOption();
+            Thread.sleep(2000);
+
+            Assert.assertTrue(settingsScreen.isOnChainSecurityDisplayed());
+            Assert.assertTrue(settingsScreen.isManageOnChainSecurityDisplayed());
+
+            settingsScreen.openOnChainSecurity();
+            logger.info("Checking if it is enabled ");
+            Assert.assertTrue(settingsScreen.isOnChainSecurityEnabledByDefault());
+            logger.info("it is enabled");
+            logger.info("Click on the toggle");
+            Thread.sleep(1000);
+            settingsScreen.clickOnChainSecurityToggle();
+            logger.info("Clicked on the toggle");
+
+            Assert.assertTrue(settingsScreen.isOnChainSecurityDisabledTitleDisplayed());
+            Assert.assertTrue(settingsScreen.isOnChainSecurityDisabledDescriptionDisplayed());
+
+            settingsScreen.clickContinueAnywayButton();
+
+// Enable again
         settingsScreen.clickOnChainSecurityToggle();
-        settingsScreen.clickContinueAnywayButton();
-
+        Thread.sleep(2000);
+        logger.info("click the button again");
         settingsScreen.clickOnChainSecurityToggle();
+        // Click Go Back instead of Continue Anyway
         settingsScreen.clickOnChainSecurityGoBackButton();
         settingsScreen.clickOnChainSecurityBackButton();
+        settingsScreen.clickBackButton();
 
-        // ==================== Delete Vault ====================
+        // ----------- Delete Vault Flow -----------
+        logger.info("🔴 Validating Delete Vault flow");
 
-        logger.info("🔴 Delete Vault flow");
         settingsScreen.clickDeleteVaultOption();
         Thread.sleep(1500);
 
-        Assert.assertTrue(settingsScreen.isDeleteTitleDisplayed());
-        Assert.assertTrue(settingsScreen.isDeleteVaultNameDisplayed(renamedVault));
+        Assert.assertTrue(settingsScreen.isDeleteTitleDisplayed(), "❌ Delete title not displayed");
+        Assert.assertTrue(
+                settingsScreen.isDeleteVaultNameDisplayed(renamedVault),
+                "❌ Vault name mismatch on delete screen"
+        );
 
+        Assert.assertTrue(settingsScreen.isVaultValueLabelDisplayed(), "❌ Vault Value label missing");
+        Assert.assertTrue(settingsScreen.isVaultShareLabelDeleteScreenDisplayed(), "❌ Vault Share label missing");
+        Assert.assertTrue(settingsScreen.isShareOneOfTwoDisplayed(), "❌ Share 1-of-2 missing");
+        Assert.assertTrue(settingsScreen.isEcdsaKeyLabelDisplayed(), "❌ ECDSA Key label missing");
+        Assert.assertTrue(settingsScreen.isEddsaKeyLabelDisplayed(), "❌ EdDSA Key label missing");
+
+        Assert.assertTrue(settingsScreen.isPermanentDeleteWarningDisplayed(), "❌ Permanent delete warning missing");
+        Assert.assertTrue(settingsScreen.isLoseFundsWarningDisplayed(), "❌ Lose funds warning missing");
+        Assert.assertTrue(settingsScreen.isVaultBackupConfirmationDisplayed(), "❌ Backup confirmation missing");
+
+// Delete button should be disabled initially
+        Assert.assertTrue(settingsScreen.isDeleteButtonDisabledByDefault(), "❌ Delete button should be disabled");
+
+// Check all confirmations
         settingsScreen.clickDeleteCheckbox1();
         settingsScreen.clickDeleteCheckbox2();
         settingsScreen.clickDeleteCheckbox3();
 
+// Now delete button should be enabled → click it
         settingsScreen.clickFinalDeleteButton();
 
-        logger.info("✅ E2E Create Fast Vault – Validate Settings completed successfully");
     }
+
 }

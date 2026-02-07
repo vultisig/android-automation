@@ -795,9 +795,19 @@ public class SettingsScreen extends BaseScreen {
     }
 
     public void clickOnChainSecurityToggle() {
-        waitForVisibility(onChainSecurityToggle).click();
-        logger.info("✅ On-chain Security toggle clicked");
+        logger.info("Clicking On-chain Security toggle");
+
+        driver.findElement(
+                By.xpath(
+                        "//z1.s0/android.view.View/android.view.View/" +
+                                "android.view.View/android.view.View/android.view.View[1]/android.view.View[1]"
+                )
+        ).click();
+
+        logger.info("On-chain Security toggle clicked");
     }
+
+
 
     public void clickContinueAnywayButton() {
         waitForVisibility(continueAnywayButton).click();
