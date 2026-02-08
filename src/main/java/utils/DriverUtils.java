@@ -28,6 +28,7 @@ public class DriverUtils {
         caps.setCapability("appium:automationName", jsonObj.getString("automationName"));
         caps.setCapability("appium:newCommandTimeout", 3600);
         caps.setCapability("appium:autoGrantPermissions", true);
+        caps.setCapability("appium:ignoreHiddenApiPolicyError", true);
         //caps.setCapability("appium:noReset", true);
         //caps.setCapability("appium:fullReset", false);
         //caps.setCapability("appium:dontStopAppOnReset", true);

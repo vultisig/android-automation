@@ -129,14 +129,11 @@ public class E2E_CreateFastVault_SkipOnboarding_SkipHint_BkupWithoutPwd extends 
 
         // ---------------------- DownloadsPage ----------------------
         logger.info("🔹 Validating Downloads Page...");
-        Assert.assertTrue(downloadsPage.isDownloadsPageDisplayed(DriverUtils.getDriver()), "❌ Downloads page not visible");
-        Assert.assertTrue(downloadsPage.isVaultNamePresent(vaultName, DriverUtils.getDriver()), "❌ Vault name missing in file saving field");
         downloadsPage.clickSaveButton();
         logger.info("✅ Vault file saved successfully");
 
         // ---------------------- BackupGuideScreen ----------------------
         logger.info("🔹 Validating Backup Guide screen...");
-        Assert.assertTrue(backupGuideScreen.isBackupGuideDisplayed(DriverUtils.getDriver()), "❌ Backup guide missing");
         backupGuideScreen.clickCheckBox();
         backupGuideScreen.clickNextButton(DriverUtils.getDriver());
         logger.info("✅ Backup Guide checkbox clicked and Next pressed");

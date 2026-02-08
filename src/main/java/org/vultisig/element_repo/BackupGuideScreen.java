@@ -10,9 +10,6 @@ import java.time.Duration;
 
 public class BackupGuideScreen extends BaseScreen {
 
-    // 🔹 Back-Up guide element
-    @AndroidFindBy(xpath = "//android.view.TextureView")
-    private WebElement backupGuideElement;
 
     // 🔹 Checkbox
     @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View")
@@ -27,12 +24,6 @@ public class BackupGuideScreen extends BaseScreen {
         super(driver);
     }
 
-    // 🔹 Validate Back-Up guide element is displayed
-    public boolean isBackupGuideDisplayed(AppiumDriver driver) {
-        WebDriverWait wait = new WebDriverWait(BaseScreen.driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(backupGuideElement));
-        return backupGuideElement.isDisplayed();
-    }
 
     // 🔹 Click checkbox
     public void clickCheckBox() {

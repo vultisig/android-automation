@@ -248,7 +248,7 @@ public class SettingsScreen extends BaseScreen {
     // ==================== Details Screen – Stored Values ====================
 
     @AndroidFindBy(
-            xpath = "(//android.widget.TextView[@text='$0.00'])[5]"
+            xpath = "(//android.widget.TextView[@text='$0.00'])"
     )
     private WebElement detailsBalanceValue;
 
@@ -627,8 +627,6 @@ public class SettingsScreen extends BaseScreen {
     public boolean isDeleteBalanceValueMatching(String expected) {
         return waitForElementSafe("//android.widget.TextView[@text=\"" + expected + "\"]");
     }
-
-
 
 
     public void clickDetailsShareButton() {
