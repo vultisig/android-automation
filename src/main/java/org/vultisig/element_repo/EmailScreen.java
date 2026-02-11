@@ -16,7 +16,7 @@ public class EmailScreen extends BaseScreen {
     private WebElement emailTextField;
 
     // 🔹 Step 3: Next button
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Next\"]/parent::*")
     private WebElement nextButton;
 
     @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]")

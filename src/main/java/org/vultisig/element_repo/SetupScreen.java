@@ -28,19 +28,19 @@ public class SetupScreen extends BaseScreen {
     private WebElement backButton;
 
     // 🔹 Info icon button
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.view.View[3]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Choose Setup\"]/parent::android.view.View/following-sibling::android.view.View")
     private WebElement infoButton;
 
     // 🔹  Fast Vault selection box
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[1]")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Fast\"]/parent::*")
     private WebElement fastVaultBox;
 
     // 🔹  Continue button
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Next\"]/parent::*")
     private WebElement continueButton;
 
     // Secure vault selection box
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]/android.view.View[2]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Secure\"]/parent::*")
     private WebElement secureVaultBox;
 
     // 🔹 Constructor

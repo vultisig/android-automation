@@ -11,12 +11,12 @@ import java.time.Duration;
 public class HomePage extends BaseScreen {
 
     // 🔹 Wallet element to wait for
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[3]/android.view.View/android.view.View/android.view.View[1]")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"vault type logo\"]/parent::*")
     private WebElement walletElement;
 
     // 🔹 Settings button on Home Page
     @AndroidFindBy(
-            xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[3]/android.view.View/android.view.View/android.view.View[2]"
+            xpath = "//android.view.View[@content-desc=\"vault type logo\"]/parent::*/following-sibling::android.view.View[1]"
     )
     private WebElement settingsButton;
 

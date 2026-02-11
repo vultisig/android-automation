@@ -17,15 +17,15 @@ public class VultiServerPasswordScreen extends BaseScreen {
     private static WebElement backButton;
 
     // 🔹 Step 2: Password field
-    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[1]/android.view.View/android.widget.EditText")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Enter password\"]/parent::android.widget.EditText")
     private WebElement passwordField;
 
     // 🔹 Step 3: Confirm password field
-    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[2]/android.view.View/android.widget.EditText")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Re-enter password\"]/parent::android.widget.EditText")
     private WebElement confirmPasswordField;
 
     // 🔹 Step 4: Next button
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Next\"]/parent::*")
     private WebElement nextButton;
 
     // Eye icon for password visibility toggle

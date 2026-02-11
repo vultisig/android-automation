@@ -15,7 +15,7 @@ public class ImportVaultFlowScreen extends BaseScreen {
     private WebElement importTitle;
 
     // 🔹 Import icon
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Import your vault share\"]/parent::android.view.View")
     private WebElement importIcon;
 
     // 🔹 Downloads screen title
@@ -23,7 +23,7 @@ public class ImportVaultFlowScreen extends BaseScreen {
     private WebElement downloadsTitle;
 
     // 🔹 Back button
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text,'Supported file types')]/following-sibling::android.view.View")
     private WebElement backButton;
 
     // 🔹 Existing vault

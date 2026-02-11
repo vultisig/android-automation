@@ -12,11 +12,11 @@ public class BackupGuideScreen extends BaseScreen {
 
 
     // 🔹 Checkbox
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"I have read and understand what to do\"]/preceding-sibling::android.view.View")
     private WebElement checkBox;
 
     // 🔹 Button (wait for it to appear)
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Start using your Vault\"]/parent::*")
     private WebElement nextButton;
 
     // 🔹 Constructor

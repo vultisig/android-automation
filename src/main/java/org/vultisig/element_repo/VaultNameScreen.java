@@ -27,7 +27,7 @@ public class VaultNameScreen extends BaseScreen {
     @AndroidFindBy(xpath = "//android.widget.EditText")
     private static WebElement vaultTextField;
 
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Next\"]/parent::*")
     private static WebElement continueButton;
 
     // 🔹 Store the last vault name entered

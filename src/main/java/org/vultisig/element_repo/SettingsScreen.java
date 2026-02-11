@@ -54,19 +54,19 @@ public class SettingsScreen extends BaseScreen {
 
     // Open Share Vault QR section
     @AndroidFindBy(
-            xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]"
+            xpath = "//android.widget.TextView[@text=\"Settings\"]/parent::android.view.View/following-sibling::android.view.View"
     )
     private WebElement openShareQrButton;
 
     // Share button
     @AndroidFindBy(
-            xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]"
+            xpath = "//android.widget.TextView[@text=\"Share\"]/parent::*"
     )
     private WebElement shareButton;
 
     // Save button
     @AndroidFindBy(
-            xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[4]"
+            xpath = "//android.widget.TextView[@text=\"Save\"]/parent::*"
     )
     private WebElement saveButton;
 
@@ -137,7 +137,7 @@ public class SettingsScreen extends BaseScreen {
 
     // ==================== Vault Settings (from Settings screen) ====================
 
-    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[1]/android.view.View[1]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Vault Settings\"]/parent::*")
     private WebElement vaultSettingsButton;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Vault Settings\"]")
@@ -160,13 +160,13 @@ public class SettingsScreen extends BaseScreen {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Biometrics fast sign\"]")
     private WebElement biometricsFastSignText;
 
-    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[1]/android.view.View[5]/android.view.View/android.view.View")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Biometrics fast sign\"]/parent::*/android.view.View")
     private WebElement biometricsFastSignButton;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Enable Biometrics Fast Signing\"]")
     private WebElement enableBiometricsFastSigningText;
 
-    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[3]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Save\"]/parent::*")
     private WebElement biometricsSaveButton;
 
     // Use EditText itself; /android.view.View was the non-editable child and caused InvalidElementStateException
@@ -200,7 +200,7 @@ public class SettingsScreen extends BaseScreen {
     private WebElement deleteVaultShareDescText;
 
     // --- Details section (Vault Settings) ---
-    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[1]/android.view.View[1]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Details\"]/parent::*")
     private WebElement detailsButton;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Vault Info\"]")
@@ -224,13 +224,13 @@ public class SettingsScreen extends BaseScreen {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"ECDSA Key\"]")
     private WebElement ecdsaKeyText;
 
-    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[4]/android.view.View")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"ECDSA Key\"]/following-sibling::android.view.View")
     private WebElement detailsCopyIcon1;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"EdDSA Key\"]")
     private WebElement eddsaKeyText;
 
-    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[5]/android.view.View")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"EdDSA Key\"]/following-sibling::android.view.View")
     private WebElement detailsCopyIcon2;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"2-of-2 Vault Setup\"]")
@@ -242,7 +242,7 @@ public class SettingsScreen extends BaseScreen {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Signer 2\"]")
     private WebElement signer2Text;
 
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Details\"]/parent::*/following-sibling::android.view.View")
     private WebElement detailsShareButton;
 
     // ==================== Details Screen – Stored Values ====================
@@ -257,19 +257,19 @@ public class SettingsScreen extends BaseScreen {
 
 
     // --- Rename ---
-    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[1]/android.view.View[3]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Rename\"]/parent::*")
     private WebElement renameButton;
 
     @AndroidFindBy(xpath = "//android.widget.EditText[@text=\"Fast Vault #702\"]/android.view.View")
     private WebElement renameEditTextWrapper;
 
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Save\"]/parent::*/preceding-sibling::android.view.View/android.view.View/android.view.View")
     private WebElement renameClearIcon;
 
     @AndroidFindBy(xpath = "//android.widget.EditText")
     private WebElement renameTextField;
 
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Save\"]/parent::*")
     private WebElement renameSaveButton;
 
     @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.view.View/android.view.View[1]")
@@ -289,7 +289,7 @@ public class SettingsScreen extends BaseScreen {
     private WebElement thisVaultOnlyText;
 
     // --- Advanced option ---
-    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[3]/android.view.View")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Advanced\"]/parent::*")
     private WebElement advancedOption;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Sign Transaction\"]")
@@ -304,28 +304,28 @@ public class SettingsScreen extends BaseScreen {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Manage your on-chain security\"]")
     private WebElement manageOnChainSecurityText;
 
-    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View/android.view.View[1]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Sign Transaction\"]/parent::*")
     private WebElement signTransactionOption;
 
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]/android.view.View/android.widget.EditText")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Signing method\"]/parent::*")
     private WebElement signingMethodTextField;
 
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[2]/android.view.View/android.widget.EditText")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Message to sign\"]/parent::*")
     private WebElement messageToSignTextField;
 
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[3]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Continue\"]/parent::*")
     private WebElement signTransactionContinueButton;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Verify\"]")
     private WebElement verifyText;
 
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View/android.view.View[1]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Fast Sign\"]/parent::*")
     private WebElement fastSignButton;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Enter your password\"]")
     private WebElement enterYourPasswordText;
 
-    @AndroidFindBy(xpath = "//android.view.ViewGroup/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View/android.view.View[1]/android.view.View[3]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Continue\"]/parent::*")
     private WebElement signVerifyContinueButton;
 
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Overview\"]")
@@ -340,13 +340,13 @@ public class SettingsScreen extends BaseScreen {
     @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Signature\"]")
     private WebElement signatureText;
 
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Complete\"]/parent::*")
     private WebElement completeButton;
 
     //---------On-chain security -----------
     // --- On-chain Security option (Advanced section) ---
     @AndroidFindBy(
-            xpath = "//android.widget.ScrollView/android.view.View/android.view.View[3]"
+            xpath = "//android.widget.TextView[@text=\"On-chain Security\"]/parent::*"
     )
     private WebElement onChainSecurityOption;
 
@@ -364,7 +364,7 @@ public class SettingsScreen extends BaseScreen {
 
     // Toggle (same XPath used for enable / disable)
     @AndroidFindBy(
-            xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[1]/android.view.View[1]"
+            xpath = "//android.widget.TextView[@text=\"ON\"]/preceding-sibling::android.view.View/android.view.View[2]"
     )
     private WebElement onChainSecurityToggle;
 
@@ -379,12 +379,12 @@ public class SettingsScreen extends BaseScreen {
 
     // Continue anyway button
     @AndroidFindBy(
-            xpath = "//android.view.ViewGroup/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[2]"
+            xpath = "//android.widget.TextView[@text=\"Continue anyway\"]/parent::*"
     )
     private WebElement continueAnywayButton;
     // Go Back button (On-chain Security warning screen)
     @AndroidFindBy(
-            xpath = "//android.view.ViewGroup/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]"
+            xpath = "//android.widget.TextView[@text=\"Go Back\"]/parent::*"
     )
     private WebElement onChainSecurityGoBackButton;
 
@@ -398,7 +398,7 @@ public class SettingsScreen extends BaseScreen {
 
     // Delete option click (from Vault Settings list)
     @AndroidFindBy(
-            xpath = "//android.widget.ScrollView/android.view.View[4]/android.view.View"
+            xpath = "//android.widget.TextView[@text=\"Delete\"]/parent::*"
     )
     private WebElement deleteVaultOption;
 
@@ -440,18 +440,18 @@ public class SettingsScreen extends BaseScreen {
 
     // Delete button (disabled by default)
     @AndroidFindBy(
-            xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]"
+            xpath = "//android.widget.TextView[@text=\"Delete Vault\"]/parent::*"
     )
     private WebElement deleteButton;
 
     // Checkboxes
-    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[7]/android.view.View")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"I am aware that the vault will be deleted permanently\"]/preceding-sibling::android.view.View")
     private WebElement deleteCheckbox1;
 
-    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[8]/android.view.View")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"I am aware that I can lose funds\"]/preceding-sibling::android.view.View")
     private WebElement deleteCheckbox2;
 
-    @AndroidFindBy(xpath = "//android.widget.ScrollView/android.view.View[9]/android.view.View")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"I have made a vault backup\"]/preceding-sibling::android.view.View")
     private WebElement deleteCheckbox3;
 
 

@@ -18,7 +18,7 @@ public class OptionalHintScreen extends BaseScreen {
     private WebElement forgetPasswordHintText;
 
     // 🔹 Step 2: Skip button
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Skip\"]/parent::*")
     private WebElement skipButton;
 
     // 🔹 Step 3: Hint input field
@@ -26,7 +26,7 @@ public class OptionalHintScreen extends BaseScreen {
     private WebElement skipField;
 
     // 🔹 Step 4: Next button
-    @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[4]")
+    @AndroidFindBy(xpath = "//android.widget.TextView[@text=\"Next\"]/parent::*")
     private WebElement nextButton;
 
     @AndroidFindBy(xpath = "//z1.s0/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[2]/android.view.View/android.view.View[1]")
